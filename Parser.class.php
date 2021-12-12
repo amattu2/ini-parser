@@ -27,76 +27,76 @@ namespace amattu;
  * Configuration/Ini file parser class
  */
 class Parser {
-	/**
+  /**
    * Holds the parsed configuration data
    *
    * @var array
    */
-	protected $config;
+  protected $config;
 
   /**
    * An array of the sections found in the configuration file
    *
    * @var ?bool
    */
-	protected $sections;
+  protected $sections;
 
-	/**
-	 * Configuration reader constructor
-	 *
-	 * @param string $file The path to the configuration file
-	 * @param ?bool $sections Whether to parse individual sections or not
-	 * @throws TypeError
+  /**
+   * Configuration reader constructor
+   *
+   * @param string $file The path to the configuration file
+   * @param ?bool $sections Whether to parse individual sections or not
+   * @throws TypeError
    * @author Alec M.
-	 */
-	public function __construct(string $filename, ?bool $sections = false)
-{
-		// Variables
-		$this->sections = $sections;
-		$this->config = $this->read($filename);
-	}
-
-	/**
-	 * Get configuration file property
-	 *
-	 * @param string $key The property to get
-	 * @param string|null $section The section to get the property from
-	 * @param ?mixed $default value to return if the property is not found
-	 * @return $config[$key] || $default || null
-	 * @throws TypeError
-	 * @author Alec M.
-	 */
-	public function get(string $key, ?string $section = null, ?mixed $default = null) : mixed
+   */
+  public function __construct(string $filename, ?bool $sections = false)
   {
-		if ($section && array_key_exists($section, $this->config) && array_key_exists($key, $this->config[$section])) {
-			return $this->config[$section][$key];
-		}
-		if (array_key_exists($key, $this->config)) {
-			return $this->config[$key];
-		}
+    // Variables
+    $this->sections = $sections;
+    $this->config = $this->read($filename);
+  }
 
-		// Return
-		return $default;
-	}
-
-	/**
-	 * Read configuration file
-	 * @param string $file location
-	 * @return Array Parsed File
-	 * @throws TypeError
-	 * @author Alec M.
-	 */
-	protected function read(string $file) : array
+  /**
+   * Get configuration file property
+   *
+   * @param string $key The property to get
+   * @param string|null $section The section to get the property from
+   * @param ?mixed $default value to return if the property is not found
+   * @return $config[$key] || $default || null
+   * @throws TypeError
+   * @author Alec M.
+   */
+  public function get(string $key, ?string $section = null, ?mixed $default = null) : mixed
   {
-		// Checks
-		if (!file_exists($file)) {
-			return Array();
-		}
-		if (!function_exists("parse_ini_file")) {
-			return Array();
-		}
+    if ($section && array_key_exists($section, $this->config) && array_key_exists($key, $this->config[$section])) {
+      return $this->config[$section][$key];
+    }
+    if (array_key_exists($key, $this->config)) {
+      return $this->config[$key];
+    }
 
-		// Return
-		return parse_ini_file($file, $this->sections) ?: Array();
-	}
+    // Return
+    return $default;
+  }
+
+  /**
+   * Read configuration file
+   * @param string $file location
+   * @return Array Parsed File
+   * @throws TypeError
+   * @author Alec M.
+   */
+  protected function read(string $file) : array
+  {
+    // Checks
+    if (!file_exists($file)) {
+      return Array();
+    }
+    if (!function_exists("parse_ini_file")) {
+      return Array();
+    }
+
+    // Return
+    return parse_ini_file($file, $this->sections) ?: Array();
+  }
 }
