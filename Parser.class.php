@@ -61,12 +61,12 @@ class Parser {
    *
    * @param string $key The property to get
    * @param string|null $section The section to get the property from
-   * @param ?mixed $default value to return if the property is not found
+   * @param ?$default value to return if the property is not found
    * @return $config[$key] || $default || null
    * @throws TypeError
    * @author Alec M.
    */
-  public function get(string $key, ?string $section = null, ?mixed $default = null) : mixed
+  public function get(string $key, ?string $section = null, $default = null)
   {
     if ($section && array_key_exists($section, $this->config) && array_key_exists($key, $this->config[$section])) {
       return $this->config[$section][$key];
