@@ -61,8 +61,8 @@ class Parser {
    *
    * @param string $key The property to get
    * @param string|null $section The section to get the property from
-   * @param ?$default value to return if the property is not found
-   * @return $config[$key] || $default || null
+   * @param mixed|null value to return if the property is not found
+   * @return mixed|null
    * @throws TypeError
    * @author Alec M.
    */
