@@ -21,12 +21,12 @@
  */
 
 // Class Namespace
-namespace amattu;
+namespace amattu\IniParser;
 
 /*
  * Configuration/Ini file parser class
  */
-class Parser {
+class IniParser {
   /**
    * Holds the parsed configuration data
    *

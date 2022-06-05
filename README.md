@@ -1,19 +1,39 @@
 # Introduction
+
 This is a basic configuration/`.ini` file parser built with PHP. It's designed to be error-safe, and provides the opportunity to use a default value if one is not found.
 
 # Usage
+
+## Install
+
+```bash
+composer require amattu/IniParser
+```
+
 ## Setup
 
-```PHP
-require(__DIR__ . "/Parser.class.php");
+Composer project usage
 
-$config = new amattu\Parser(__DIR__ . "/conf.ini");
+```PHP
+require(__DIR__ . "/vendor/autoload.php");
+
+$config = new amattu\IniParser(__DIR__ . "/conf.ini");
+```
+
+Without composer
+
+```PHP
+require(__DIR__ . "/src/IniParser.php");
+
+$config = new amattu\IniParser(__DIR__ . "/conf.ini");
 ```
 
 ## construct
+
 The class constructor accepts the file location (path + name), and an optional boolean argument on parsing the individual sections (usually denoted by `[NAME]`).
 
 ### PHPDoc
+
 ```PHP
 /**
  * Configuration reader constructor
@@ -29,14 +49,17 @@ public function __construct(string $filename, ?bool $sections = false)
 ___
 
 ## get
+
 The `get` function will attempt to pull the value from the section specified (... if specified), and if not found, will return the default parameter. All of the arguments except `$key` are optional.
 
 ### Usage
-```PHPDoc
+
+```PHP
 $usernameOrDefault = $config->get("USERNAME", "GMAIL_SECTION", "defaultUserName");
 ```
 
 ### PHPDoc
+
 ```PHP
 /**
  * Get configuration file property
@@ -52,4 +75,5 @@ public function get(string $key, ?string $section = null, ?mixed $default = null
 ```
 
 # Requirements & Dependencies
+
 - PHP 7.x +
