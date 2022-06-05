@@ -1,8 +1,8 @@
 {
     "name": "amattu2/ini-parser",
-    "description": "A PHP-7+ .ini file parser built with error-redundancies",
+    "description": "A PHP-7 .ini file parser built with error-redundancies",
     "type": "library",
-    "license": "AGPL-V3.0",
+    "license": "AGPL-3.0-or-later",
     "autoload": {
         "psr-4": {
             "Amattu\\IniParser\\": "src/"
