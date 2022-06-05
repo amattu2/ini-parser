@@ -21,7 +21,7 @@
  */
 
 // Class Namespace
-namespace amattu\IniParser;
+namespace amattu2;
 
 /*
  * Configuration/Ini file parser class
