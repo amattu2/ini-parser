@@ -1,5 +1,5 @@
 {
-    "name": "amattu/ini-parser",
+    "name": "amattu2/ini-parser",
     "description": "A PHP-7+ .ini file parser built with error-redundancies",
     "type": "library",
     "license": "AGPL-V3.0",
